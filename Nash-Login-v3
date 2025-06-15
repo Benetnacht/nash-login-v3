@@ -1,0 +1,26 @@
+let loggedIn = false;
+let username = '';
+let password = '';
+let attempts = 3;
+
+while (!loggedIn && attempts > 0) {
+    username = prompt('Enter your username');
+    password = prompt('Enter your password');
+
+    if (username === null || password === null) {
+        alert('Login cancelled');
+        break;
+    }
+
+    if (username === 'admin' && password === '1234') {
+        alert('Login successful!');
+        loggedIn = true;
+    } else {
+        attempts--;
+        alert(`Login failed. You have ${attempts} attempts left.`);
+    }
+}
+
+if (!loggedIn && attempts === 0) {
+    alert('Too many failed attempts. Login failed.');
+}
